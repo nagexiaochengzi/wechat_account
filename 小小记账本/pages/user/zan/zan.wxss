@@ -1,0 +1,6 @@
+ 
+.thank{
+  color: rgb(13, 130, 134);
+  font-size: 64rpx;
+   
+}

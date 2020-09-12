@@ -1,0 +1,111 @@
+<view class='page'>
+  <view class='weui-panel weui-panel_access'></view>
+  <view class="weui-panel weui-panel_access">
+    <view class="weui-panel__bd weui-cell_access">
+      <navigator url="/pages/user/user/user" class="weui-media-box weui-media-box_appmsg" style='' hover-class="weui-cell_active">
+        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+          <open-data class="weui-media-box__thumb" type="userAvatarUrl"></open-data>
+        </view>
+        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+          <open-data class="weui-media-box__title" type="userNickName"></open-data>
+          <open-data class="weui-media-box__desc" type="userCity"></open-data>
+        </view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </navigator>
+    </view>
+  </view>
+  <view class="big">
+    <navigator url="/pages/account/account">
+      <view class="tong">统计</view>
+    </navigator>
+    <view class="tong">信息</view>
+    <view class="tong">其他</view>
+  </view>
+  <view class="weui-panel">
+    <view class="weui-panel__bd">
+      <view class="weui-media-box weui-media-box_small-appmsg">
+        <view class="weui-cells weui-cells_in-small-appmsg">
+          <navigator url="/pages/user/clear/clear" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+            <view class="weui-cell__hd">
+              <image src="{{imageClear}}" class='tourism-image_radius' />
+            </view>
+            <view class="weui-cell__bd weui-cell_primary">
+              <view>清除</view>
+            </view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="weui-panel">
+    <view class="weui-panel__bd">
+      <view class="weui-media-box weui-media-box_small-appmsg">
+        <view class="weui-cells weui-cells_in-small-appmsg">
+          <navigator url="/pages/user/zan/zan" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+            <view class="weui-cell__hd">
+              <image src='{{imageRecognize}}' class='tourism-image_radius' />
+            </view>
+            <view class="weui-cell__bd weui-cell_primary">
+              <view>赞赏</view>
+            </view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+          </navigator>
+          <navigator url='/pages/user/share/share' class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+            <view class="weui-cell__hd">
+              <image src="{{imageShare}}" class='tourism-image_radius' />
+            </view>
+            <view class="weui-cell__bd weui-cell_primary">
+              <view>分享</view>
+            </view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+          </navigator>
+          <navigator class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+            <view class="weui-cell__hd">
+              <image src='{{kefu}}' class='tourism-image_radius' />
+            </view>
+            <view class="weui-cell__bd weui-cell_primary">
+              <view class="kefuv">客服</view>
+              <button open-type='contact' class="kefu"></button>
+            </view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="weui-panel">
+    <view class="weui-panel__bd">
+      <view class="weui-media-box weui-media-box_small-appmsg">
+        <view class="weui-cells weui-cells_in-small-appmsg">
+          <navigator url="/pages/user/setting/setting" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+            <view class="weui-cell__hd">
+              <image src="{{imageSetting}}" class='tourism-image_radius' />
+            </view>
+            <view class="weui-cell__bd weui-cell_primary">
+              <view>设置</view>
+            </view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="weui-panel">
+    <view class="weui-panel__bd">
+      <view class="weui-media-box weui-media-box_small-appmsg">
+        <view class="weui-cells weui-cells_in-small-appmsg">
+          <navigator url="/pages/main/main" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+            <view class="weui-cell__hd">
+              <image src="{{imagetui}}" class='tourism-image_radius' />
+            </view>
+            <view class="weui-cell__bd weui-cell_primary">
+              <view>退出</view>
+            </view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

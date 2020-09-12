@@ -1,0 +1,35 @@
+.big {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.tong {
+    margin-top: 12rpx;
+    width: 200rpx;
+    height: 120rpx;
+    background: white;
+    text-align: center;
+    border-radius: 5px;
+    color: teal;
+    padding-top: 60rpx;
+    margin-left: 20rpx;
+}
+.kefu {
+    background: transparent;
+    width: 100%;
+    height: 50rpx;
+    font-size: 32rpx;
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: -26rpx;
+}
+.kefu::after {
+    border: none !important ;
+    border-radius: 0;
+}
+.kefuv {
+    position: absolute;
+}

@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/main/main",
+    "pages/index/index",
+    "pages/change/change",
+    "pages/show/show",
+    "pages/account/account",
+    "pages/user/index/index",
+    "pages/user/user/user",
+    "pages/user/zan/zan",
+    "pages/user/setting/setting",
+    "pages/user/clear/clear", 
+    "pages/user/share/share" 
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "小小记账本",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "position": "bottom",
+    "list": [{
+        "pagePath": "pages/index/index",
+        "text": "详情",
+        "iconPath": "/images/icon/home.png",
+        "selectedIconPath": "/images/icon/home-o.png"
+      },
+      {
+        "pagePath": "pages/show/show",
+        "text": "记账",
+        "iconPath": "/images/icon/category.png",
+        "selectedIconPath": "/images/icon/category-o.png"
+      },
+
+      {
+        "pagePath": "pages/user/index/index",
+        "text": "个人",
+        "iconPath": "/images/icon/my.png",
+        "selectedIconPath": "/images/icon/my-o.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": false,
+  "sitemapLocation": "sitemap.json"
+}

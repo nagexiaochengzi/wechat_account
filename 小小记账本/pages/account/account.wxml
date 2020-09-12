@@ -1,0 +1,48 @@
+<!--pages/account/account.wxml 报表页面-->
+<view class='page'>
+  
+  <view class='weui-panel weui-panel_access'>
+    <view class='weui-panel__hd'>统计类别</view>
+    <view class='weui-panel__bd'>
+      <view class='weui-cell'>
+        <view class='weui-cell__hd' style="width: 50% ">
+          <picker bindchange='bindAreaChange' value='{{searchAreaIndex}}' range='{{searchArea}}'>
+            <view class="weui-select ">{{searchArea[searchAreaIndex]}}</view>
+          </picker>
+        </view>
+        <view class='weui-cell__bd'>
+          <picker mode="date" value="{{searchDate}}" start="{{startDate}}" end="{{endDate}}" bindchange="bindDateChange">
+            <view class="weui-input">{{searchDate}}</view>
+          </picker>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='weui-panel weui-panel_access' wx:if='{{outBillMax > 0}}'>
+    <view class='weui-panel__hd'>消费统计:<text style='color:red'>{{outAllMoney}}</text>元</view>
+    <view class='weui-panel__bd'>
+      <canvas canvas-id='outCanvasIdCircle' style='width:{{windowWidth}}px;height:{{windowWidth}}px;'></canvas>
+    </view>
+    <view class='weui-panel__bd'>
+      <canvas canvas-id='outCanvasIdRect' style='width:{{windowWidth}}px;height:{{windowWidth}}px;'></canvas>
+    </view>
+  </view>
+  <view class='weui-panel weui-panel_access' wx:if='{{inBillMax > 0}}'>
+    <view class='weui-panel__hd'>收入统计:<text style='color:red'>{{inAllMoney}}</text>元</view>
+    <view class='weui-panel__bd'>
+      <canvas canvas-id='inCanvasIdCircle' style='width:{{windowWidth}}px;height:{{windowWidth}}px;'></canvas>
+    </view>
+    <view class='weui-panel__bd'>
+      <canvas canvas-id='inCanvasIdRect' style='width:{{windowWidth}}px;height:{{windowWidth}}px;'></canvas>
+    </view>
+  </view>
+  <view class='weui-msg' wx:if="{{inBillMax <= 0 && outBillMax<=0}}">
+    <view class='weui-msg__text-area'>
+      <view class='weui-msg__title'>您还未添加任何账单哦！</view>
+    
+    </view>
+  </view>
+  <view class='weui-msg' wx:if="{{inBillMax > 0 || outBillMax>0}}" style="margin-bottom:35rpx">
+    <button class='weui-btn weui-btn_primary' open-type='share' style='width:80%;positon:center;margin-bottom:50px'>分享账单</button>
+  </view>
+</view>

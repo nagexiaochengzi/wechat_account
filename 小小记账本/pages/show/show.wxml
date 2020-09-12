@@ -1,0 +1,157 @@
+<view class='page'>
+  <form bindsubmit='addRecordBill'>
+    <view class="weui-tab">
+      <view class='weui-navbar' style='background-color:white'>
+        <block wx:for="{{tabs}}" wx:key="*this">
+          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+            <view class="weui-navbar__title">{{item}}</view>
+          </view>
+        </block>
+        <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+      </view>
+      <!-- 支出 -->
+      <view class='weui-tab__panel'>
+        <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+          <view class='weui-cells__title'>消费详情</view>
+          <view class='weui-cells weui-cells__form weui-cells_after-title'>
+            <!-- 消费金额 -->
+            <view class='weui-cell'>
+              <view class='weui-cell__hd'>
+                <image style="width:48rpx;height:40rpx;float:left;margin-top:8rpx;margin-right:12rpx" src='/images/icon/xiaofei.png'></image>
+                <view class='weui-label'>消费金额</view>
+              </view>
+              <view class='weui-cell__bd'>
+                <input name="outMoney" class='weui-input' type='number' value='{{outMoney}}' placeholder='0.00' requried></input>
+              </view>
+            </view>
+            <!-- 消费日期 -->
+            <view class='weui-cell'>
+              <view class='weui-cell__hd'>
+                <image style="width:45rpx;height:45rpx;float:left;margin-top:8rpx;margin-right:12rpx" src='/images/icon/date.png'></image>
+                <view class='weui-label'>消费日期</view>
+              </view>
+              <view class='weui-cell__bd'>
+                <picker mode="date" value="{{outDate}}" start="{{startDate}}" end="{{endDate}}" bindchange="bindDateChange">
+                  <view class="weui-input">{{outDate}}</view>
+                </picker>
+              </view>
+            </view>
+            <!-- 消费时间 -->
+            <view class='weui-cell'>
+              <view class='weui-cell__hd'>
+                <image style="width:45rpx;height:45rpx;float:left;margin-top:8rpx;margin-right:12rpx" src='/images/icon/time.png'></image>
+                <view class='weui-label'>消费时间</view>
+              </view>
+              <view class='weui-cell__bd'>
+                <picker mode="time" value="{{outTime}}" start="08:00" end="23:59" bindchange="bindTimeChange">
+                  <view class="weui-input">{{outTime}}</view>
+                </picker>
+              </view>
+            </view>
+          </view>
+          <!-- 消费领域 -->
+          <view class='weui-cells__title'>消费领域</view>
+          <view class='weui-cells weui-cells_after-title'>
+            <view class='weui-cell weui-cell_select'>
+              <view class='weui-cell__hd' style="width: 30% ">
+                <picker bindchange='bindAreaChange' value='{{consumAreaIndex}}' range='{{consumptionArea}}'>
+                  <view class="weui-select ">
+                    <image style="width:45rpx;height:45rpx;float:left;margin-top:19rpx;margin-right:12rpx" src='{{consumptionAreaimg[consumAreaIndex]}}'></image>
+                    {{consumptionArea[consumAreaIndex]}}
+                  </view>
+                </picker>
+              </view>
+              <view class='weui-cell__bd'>
+                <picker bindchange='bindAreaBranchChange' value='{{consumAreaBranchIndex}}' range='{{consumAreaBranch[consumAreaIndex]}}'>
+                  <view class="weui-select">
+                    {{consumAreaBranch[consumAreaIndex][consumAreaBranchIndex]}}
+                  </view>
+                </picker>
+              </view>
+            </view>
+          </view>
+          <!-- 消费说明 -->
+          <view class='weui-cells__title'>消费说明</view>
+          <view class='weui-cells weui-cells__form weui-cells_after-title'>
+            <view class='weui-cell'>
+              <view class='weui-cell__bd'>
+                <textarea class='weui-textarea' value='{{accountOutData}}' placeholder='请输入文本' style='height:3.3em' name="outTextareaData" maxlength='200' bindinput='accountOutLength'></textarea>
+                <view class='weui-textarea-counter'>{{outLength}}/200</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <!-- 收入情况 -->
+        <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+          <view class='weui-cells__title'>收入详情</view>
+          <view class='weui-cells weui-cells__form weui-cells_after-title'>
+            <!-- 收入金额 -->
+            <view class='weui-cell'>
+              <view class='weui-cell__hd'>
+                <image style="width:48rpx;height:40rpx;float:left;margin-top:8rpx;margin-right:12rpx" src='/images/icon/xiaofei.png'></image>
+                <view class='weui-label'>收入金额</view>
+              </view>
+              <view class='weui-cell__bd'>
+                <input name="inMoney" class='weui-input' type='number' value='{{inMoney}}' placeholder='0.00'></input>
+              </view>
+            </view>
+            <!-- 收入日期 -->
+            <view class='weui-cell'>
+              <view class='weui-cell__hd'>
+                <image style="width:45rpx;height:45rpx;float:left;margin-top:8rpx;margin-right:12rpx" src='/images/icon/date.png'></image>
+                <view class='weui-label'>收入日期</view>
+              </view>
+              <view class='weui-cell__bd'>
+                <picker mode="date" value="{{inDate}}" start="{{startDate}}" end="{{endDate}}" bindchange="bindDateChange">
+                  <view class="weui-input">{{inDate}}</view>
+                </picker>
+              </view>
+            </view>
+            <!-- 收入时间 -->
+            <view class='weui-cell'>
+              <view class='weui-cell__hd'>
+                <image style="width:45rpx;height:45rpx;float:left;margin-top:8rpx;margin-right:12rpx" src='/images/icon/time.png'></image>
+                <view class='weui-label'>收入时间</view>
+              </view>
+              <view class='weui-cell__bd'>
+                <picker mode="time" value="{{inTime}}" start="08:00" end="23:59" bindchange="bindTimeChange">
+                  <view class="weui-input">{{inTime}}</view>
+                </picker>
+              </view>
+            </view>
+          </view>
+          <!-- 收入领域 -->
+          <view class='weui-cells__title'>收入领域</view>
+          <view class='weui-cells weui-cells_after-title'>
+            <view class='weui-cell weui-cell_select'>
+              <view class='weui-cell__bd'>
+                <picker bindchange='bindIncomeAreaChange' value='{{incomeAreaIndex}}' range='{{incomeArea}}' style="margin-left:150rpx">
+                  <image style="width:45rpx;height:45rpx;float:left;margin-top:22rpx;margin-right:52rpx;margin-left:-118rpx;" src='{{incomeAreaimg[incomeAreaIndex]}}'></image>
+                  <view class="weui-select" style="margin-left:-88rpx;">
+                    {{incomeArea[incomeAreaIndex]}}
+                  </view>
+                </picker>
+              </view>
+            </view>
+          </view>
+          <!-- 收入说明 -->
+          <view class='weui-cells__title'>收入说明</view>
+          <view class='weui-cells weui-cells__form weui-cells_after-title'>
+            <view class='weui-cell'>
+              <view class='weui-cell__bd'>
+                <textarea class='weui-textarea' value='{{accountInData}}' placeholder='请输入文本' style='height:3.3em' name="inTextareaData" maxlength='200' bindinput='accountInLength'></textarea>
+                <view class='weui-textarea-counter'>{{inLength}}/200</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 操作按钮 -->
+    <view class='weui-msg' style="margin-bottom:35rpx">
+      <button class="weui-btn weui-btn_primary" form-type='submit' type="primary" style='width:50%;position:center;'>
+        添加账单
+      </button>
+    </view>
+  </form>
+</view>

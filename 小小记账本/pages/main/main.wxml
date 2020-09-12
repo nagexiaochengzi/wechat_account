@@ -1,0 +1,7 @@
+<view class="bg">
+    <image class="img" src="/images/img/bg.jpg" />
+    <view class="title">小小记账本</view>
+    <navigator bindtap="begin">
+        <view class="begin">开始记账</view>
+    </navigator>
+</view>

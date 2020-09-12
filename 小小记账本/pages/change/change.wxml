@@ -1,0 +1,32 @@
+<view class='page'>
+  <view class='weui-msg'>
+    <view class='weui-msg__text-area'>
+      <view class='weui-msg__title'>{{billUnit2.title}}</view>
+      <view class='weui-msg__desc'>
+        <view>时间:{{billUnit2.time}}</view>
+        <view>详情:{{billUnit2.detail}}</view>
+      </view>
+    </view>
+  </view>
+  <view class='weui-msg'>
+    <button class='weui-btn weui-btn_primary' bindtap='showDialogBtn' style='width:50%;positon:center;background:#3399CC'>
+      修改
+    </button>
+  </view>
+  <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+  <view class="modal-dialog" wx:if="{{showModal}}">
+    <view class="modal-title">修改信息</view>
+    <view class="modal-content">
+      <view class="modal-input">
+        <input type="money" bindinput="change_money" class="input" placeholder="金额"></input>
+      </view>
+      <view class="modal-input">
+        <textarea class='weui-textarea' placeholder='请输入修改内容' style='height:13em' name="inTextareaData" bindinput='change_detail'></textarea>
+      </view>
+    </view>
+    <view class="modal-footer">
+      <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+      <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
+    </view>
+  </view>
+</view>

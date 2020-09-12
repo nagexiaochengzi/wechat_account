@@ -1,0 +1,54 @@
+<view class="page">
+  <view class="weui-search-bar" wx:if="{{showSearchBar}}">
+    <view class="weui-search-bar__form">
+      <view class="weui-search-bar__box">
+        <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+        <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindconfirm="inputTyping" />
+        <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+          <icon type="clear" size="14"></icon>
+        </view>
+      </view>
+      <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+        <icon class="weui-icon-search" type="search" size="14"></icon>
+        <view class="weui-search-bar__text">搜索</view>
+      </label>
+    </view>
+    <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">
+      取消
+    </view>
+  </view>
+  <view class="weui-panel weui-panel_access">
+    <view class="weui-panel__hd">历史消费记录</view>
+    <view class="weui-panel__bd">
+      <navigator class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" wx:for="{{billUnitArray}}" wx:key="id" wx:for-item="itemValue" url="/pages/change/change?myid={{index}}" data-index="{{index}}" bindlongpress='bindTouchmove'>
+        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+          <image class="weui-media-box__thumb" src="{{itemValue.image}}" />
+        </view>
+        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+          <view class="weui-media-box__title">{{itemValue.title}}</view>
+          <view class="weui-media-box__desc">时间:{{itemValue.time}} 详情:{{itemValue.detail}}</view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+  <view wx:if="{{currentSize > 0}}">
+    <view class='weui-loadmore' wx:if="{{currentSize >= showSize && pullBottom==false}}">
+      <view class="weui-loadmore__tips">下拉查看更多</view>
+    </view>
+    <view class="weui-loadmore" wx:if="{{pullBottom}}">
+      <view class="weui-loading"></view>
+      <view class="weui-loadmore__tips">正在加载</view>
+    </view>
+    <view class="weui-loadmore weui-loadmore_line" wx:if="{{currentSize < showSize}}">
+      <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无更多</view>
+    </view>
+  </view>
+  <view class='weui-msg' wx:if="{{currentSize <= 0}}">
+    <view class='weui-msg__text-area'>
+      <view class='weui-msg__title'>亲，你还未添加任何账单哦！</view>
+    </view>
+    <button class='weui-btn weui-btn_primary' bindtap='switchToTally' style='width:80%;position:center;'>
+      立即添加
+    </button>
+  </view>
+</view>

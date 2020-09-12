@@ -1,0 +1,16 @@
+ 
+<view page>
+  <view class='tourism-header'>
+     
+    <view class='weui-panel'>
+      <view class='weui-panel__hd'>赞赏码</view>
+      <view><text class="thank">感谢您的支持</text> </view>
+      <view class='weui-panel__bd'>
+        <view bindtap='previewImage'>
+          <image mode='widthFix' data-src='{{imageData}}' src='{{imageData}}' style='width:100%'></image>
+        </view>
+      </view>
+      <view class="weui-panel__ft"></view>
+    </view>
+  </view>
+</view>
